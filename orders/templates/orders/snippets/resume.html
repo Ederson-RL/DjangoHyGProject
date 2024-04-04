@@ -1,0 +1,91 @@
+{% load product_extras %}
+
+
+<div class="card">
+    <div class="card-body">
+        <div class="font-weight-bold">
+            Resumen del pedido
+        </div>
+    </div>
+    <div class="">
+        <table class="table-borderless table-sm">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Productos: </td>
+                    <td>{{ cart.total | price_format }} </td>
+                </tr>
+                <tr>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    {% comment %} <div class="">
+        <hr>
+        <div class="font-weight-bold text-danger">
+            Total (Impuestos incluidos)
+            <div class="d-inline-block">
+                {{ order.total | price_format}}
+            </div>
+        
+        </div>
+    </div> {% endcomment %}
+    <form id="confirm-form" method="post" action="{% url 'orders:confirm_order' %}">
+        {% csrf_token %}
+        <input type="hidden" name="order_id" value="{{ order.id }}">
+        <div class="form-group">
+            <label for="pickup_datetime">Fecha y hora de recogida:</label>
+            <input type="datetime-local" id="pickup_datetime" name="pickup_datetime" class="form-control" required>
+        </div>
+        <button id="confirm-button" type="submit" class="btn btn-primary">Confirmar pedido</button>
+    </form>
+    
+
+    <div class="mt-2">
+        <a href="{% url 'orders:cancel' %}" class="btn btn-danger">Cancelar la orden</a>
+    </div>
+</div>
+
+<script>
+    document.getElementById("confirm-button").addEventListener("click", function(event) {
+        var fechaRecogida = new Date(document.getElementById("pickup_datetime").value);
+        var fechaActual = new Date();
+
+        // Obtener la fecha y hora actual en milisegundos
+        var tiempoActual = fechaActual.getTime();
+
+        // Verificar que la fecha seleccionada no sea anterior a la fecha actual
+        if (fechaRecogida.getTime() < tiempoActual) {
+            event.preventDefault(); // Detener el envío del formulario
+            alert("La fecha de recogida no puede ser anterior a la fecha actual.");
+        }
+
+        // Calcular la fecha y hora límite (una semana después de la fecha actual)
+        var unaSemanaDespues = new Date(tiempoActual + 7 * 24 * 60 * 60 * 1000);
+
+        // Verificar que la fecha seleccionada no sea después de una semana desde la fecha actual
+        if (fechaRecogida.getTime() > unaSemanaDespues.getTime()) {
+            event.preventDefault(); // Detener el envío del formulario
+            alert("La fecha de recogida no puede ser después de una semana desde la fecha actual.");
+        }
+
+    });
+</script>
+
+<script>
+    document.getElementById("confirm-button").addEventListener("click", function(event) {
+        var fechaRecogida = new Date(document.getElementById("pickup_datetime").value);
+        var horaRecogida = fechaRecogida.getHours();
+
+        // Verificar que la hora de recogida esté dentro del rango de 8 de la mañana a 9 de la noche
+        if (horaRecogida < 8 || horaRecogida >= 21) {
+            event.preventDefault(); // Detener el envío del formulario
+            alert("La hora de recogida debe estar entre las 8:00 AM y las 9:00 PM.");
+        }
+    });
+</script>

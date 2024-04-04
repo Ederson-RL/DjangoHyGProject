@@ -1,0 +1,28 @@
+{%extends '../layouts/plantillaindex.html'%}
+{% block breadcrumb %}
+  {% include 'orders/snippets/breadcrumb.html' %}
+{% endblock %}
+
+{% block content %}
+    <div class="col-8">
+        <div class="h3">
+            Tu pedido se ha realizado exitosamente, hemos  enviado un correo electrónico a {{user.email}} con los detalles de tu compra
+        </div>
+        
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-4">
+        
+                </div>
+                <div class="col-4">
+        
+                </div>
+                <div class="col-4">
+        
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
