@@ -59,11 +59,11 @@ SILENCED_SYSTEM_CHECKS = ["security.W019"]
 JAZZMIN_SETTINGS = {
     "site_brand": "H&G Valencia",
     'welcome_sign': 'Bienvenido Admin',
-    'login_logo': 'Iconos\H_G Valencia.png',
-    'site_icon': 'Iconos\icono H_G.png',
+    'login_logo': 'Iconos\H_G_Valencia.png',
+    'site_icon': 'Iconos\icono_H_G.png',
     "site_title": "HYG",
     "site_header": "HYG",
-    "site_logo": "Iconos\icono H_G.png",
+    "site_logo": "Iconos\icono_H_G.png",
     "show_ui_builder": False,
     "icons": {
         "auth": "fas fa-users-cog",

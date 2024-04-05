@@ -14,10 +14,10 @@ python manage.py migrate
 chmod -R 755 staticfiles
 chmod -R 755 static
 
-USERNAME="adminHyG"
-EMAIL="hygvalencia10@gmail.com"
-PASSWORD="hygdb1052"
+# USERNAME="adminHyG"
+# EMAIL="hygvalencia10@gmail.com"
+# PASSWORD="hygdb1052"
 
- echo "from django.contrib.auth import get_user_model; User = get_user_model(); \
-          User.objects.create_superuser('$USERNAME', '$EMAIL', '$PASSWORD')" \
-          | python manage.py shell
+#  echo "from django.contrib.auth import get_user_model; User = get_user_model(); \
+#           User.objects.create_superuser('$USERNAME', '$EMAIL', '$PASSWORD')" \
+#           | python manage.py shell
