@@ -11,4 +11,4 @@ python manage.py collectstatic --no-input
 # Apply any outstanding database migrations
 python manage.py migrate
 
-chmod -R 755 staticfile
+chmod -R 755 staticfiles
