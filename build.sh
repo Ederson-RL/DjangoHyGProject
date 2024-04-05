@@ -12,3 +12,4 @@ python manage.py collectstatic --no-input
 python manage.py migrate
 
 chmod -R 755 staticfiles
+chmod -R 755 static
