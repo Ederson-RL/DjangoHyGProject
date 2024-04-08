@@ -42,30 +42,30 @@ def Catalogo(request):
     })
 
 
-def dashboard_administrador(request):
-    # Verificar si el usuario pertenece al grupo correcto
-    if not request.user.groups.filter(name='Empleados').exists():
-        # Si no pertenece al grupo adecuado, redirigir a la página de inicio o mostrar un error
-        # Puedes cambiar 'inicio' con la URL que desees
-        return redirect('inicio')
+# def dashboard_administrador(request):
+#     # Verificar si el usuario pertenece al grupo correcto
+#     if not request.user.groups.filter(name='Empleados').exists():
+#         # Si no pertenece al grupo adecuado, redirigir a la página de inicio o mostrar un error
+#         # Puedes cambiar 'inicio' con la URL que desees
+#         return redirect('inicio')
 
-    # El usuario pertenece al grupo correcto, continuar con el procesamiento normal
-    return render(request, 'DashboardAdmin.html', {
-        # context
-    })
+#     # El usuario pertenece al grupo correcto, continuar con el procesamiento normal
+#     return render(request, 'DashboardAdmin.html', {
+#         # context
+#     })
 
 
-def dashboard_cliente(request):
-    # Verificar si el usuario pertenece al grupo correcto
-    if not request.user.groups.filter(name='Clientes').exists():
-        # Si no pertenece al grupo adecuado, redirigir a la página de inicio o mostrar un error
-        # Puedes cambiar 'inicio' con la URL que desees
-        return redirect('inicio')
+# def dashboard_cliente(request):
+#     # Verificar si el usuario pertenece al grupo correcto
+#     if not request.user.groups.filter(name='Clientes').exists():
+#         # Si no pertenece al grupo adecuado, redirigir a la página de inicio o mostrar un error
+#         # Puedes cambiar 'inicio' con la URL que desees
+#         return redirect('inicio')
 
-    # El usuario pertenece al grupo correcto, continuar con el procesamiento normal
-    return render(request, 'DashboardClient.html', {
-        # context
-    })
+#     # El usuario pertenece al grupo correcto, continuar con el procesamiento normal
+#     return render(request, 'DashboardClient.html', {
+#         # context
+#     })
 
 
 def login_view(request):
