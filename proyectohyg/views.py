@@ -90,7 +90,7 @@ def login_view(request):
                 return redirect('admin:index')
             elif user.groups.filter(name='Clientes').exists():
                 # Redirección para clientes
-                return redirect('inicio')
+                return redirect('catalogo')
         else:
             messages.error(request, 'Usuario o contraseña incorrectos')
 
